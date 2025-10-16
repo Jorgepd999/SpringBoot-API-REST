@@ -16,7 +16,7 @@ public class FindProductoUseCase {
         // lo vamos a simular
         List<Producto> lista = new ArrayList<>();
         lista.add(new Producto(1, "Producto1", 1, LocalDateTime.now()));
-        lista.add(new Producto(2, "Producto2", 1, LocalDateTime.now()));
+        lista.add(new Producto(2, "Producto2", 2, LocalDateTime.now()));
         lista.add(new Producto(3, "Producto3", 1, LocalDateTime.now()));
 
         return lista;
