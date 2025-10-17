@@ -7,6 +7,7 @@ import es.etg.daw.dawes.java.rest.restfull.productos.application.command.CreateP
 import es.etg.daw.dawes.java.rest.restfull.productos.application.service.CreateProductoService;
 import es.etg.daw.dawes.java.rest.restfull.productos.application.service.FindProductoService;
 import es.etg.daw.dawes.java.rest.restfull.productos.application.usecase.DeleteProductoCase;
+import es.etg.daw.dawes.java.rest.restfull.productos.application.usecase.EditProductoUseCase;
 import es.etg.daw.dawes.java.rest.restfull.productos.domain.model.Producto;
 import es.etg.daw.dawes.java.rest.restfull.productos.infraestructure.mapper.ProductoMapper;
 import es.etg.daw.dawes.java.rest.restfull.productos.infraestructure.web.dto.ProductoRequest;
@@ -22,6 +23,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 @RestController
@@ -31,8 +34,9 @@ public class ProductoController {
 	
 
 	private final CreateProductoService createProductoService;
-     private final FindProductoService findProductoService;
+    private final FindProductoService findProductoService;
     private final DeleteProductoCase deleteProductoService;
+    private final EditProductoUseCase editProductoUseCase;
 
 	@PostMapping //Método Post
 	public ResponseEntity<ProductoResponse> createProducto(@RequestBody ProductoRequest productoRequest) {
@@ -60,5 +64,9 @@ public class ProductoController {
         deleteProductoService.delete(id);
         return ResponseEntity.noContent().build(); //Devolvemos una respuesta vacía.
     }
+
+    
+   
+    
 	
 }
