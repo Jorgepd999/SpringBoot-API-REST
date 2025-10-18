@@ -1,15 +1,15 @@
 package es.etg.daw.dawes.java.rest.restfull.productos.application.service;
 
-import es.etg.daw.dawes.java.rest.restfull.productos.application.usecase.DeleteProductoCase;
+import es.etg.daw.dawes.java.rest.restfull.productos.application.usecase.DeleteProductoUseCase;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class DeleteProductoService {
 
-    private final DeleteProductoCase deleteProductoCase;
+    private final DeleteProductoUseCase deleteProductoUseCase;
 
     public void delete(int id){
-        deleteProductoCase.delete(id);
+        deleteProductoUseCase.delete(id);
     }
     
 }
