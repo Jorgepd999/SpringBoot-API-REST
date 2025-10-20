@@ -60,7 +60,7 @@ public class ProductoController {
         return ResponseEntity.noContent().build(); // Devolvemos una respuesta vacía.
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}") //Metodo put
     public ProductoResponse editProducto(@PathVariable int id, @RequestBody ProductoRequest productoRequest) {
         EditProductoCommand comando = ProductoMapper.toCommand(id, productoRequest);
         Producto producto = editProductoService.update(comando);

@@ -16,7 +16,6 @@ public class EditProductoService {
 
     public Producto update(EditProductoCommand editProductoCommand) {
       
-        Producto producto = editProductoUseCase.update(editProductoCommand);
-        return producto;
+        return  editProductoUseCase.update(editProductoCommand);
     }
 }
