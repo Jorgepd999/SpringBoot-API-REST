@@ -10,3 +10,4 @@ public interface CRUDRepository<T, ID>{
     public Optional<T> getById(ID id);
     public void deleteById(ID id);
 }
+ 
