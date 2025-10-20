@@ -11,6 +11,7 @@ import es.etg.daw.dawes.java.rest.restfull.productos.application.usecase.CreateP
 import es.etg.daw.dawes.java.rest.restfull.productos.application.usecase.DeleteProductoUseCase;
 import es.etg.daw.dawes.java.rest.restfull.productos.application.usecase.EditProductoUseCase;
 import es.etg.daw.dawes.java.rest.restfull.productos.application.usecase.FindProductoUseCase;
+import es.etg.daw.dawes.java.rest.restfull.productos.infraestructure.db.repository.mock.ProductoRepositoryMockImpl;
 import lombok.RequiredArgsConstructor;
 
 @Configuration
@@ -18,12 +19,11 @@ import lombok.RequiredArgsConstructor;
 public class ProductoConfig {
 
     //POST
-    
-    @Bean
+      @Bean
     public CreateProductoUseCase createProductoUseCase() {
-        return new CreateProductoUseCase();
+		//Añadimos en la llamada una instancia de nuestro MOCK.
+        return new CreateProductoUseCase(new ProductoRepositoryMockImpl());
     }
-
     //POST
     @Bean
     public CreateProductoService createProductoService(){
@@ -59,6 +59,7 @@ public class ProductoConfig {
     }
 
     //PUT
+    @Bean
     public EditProductoService editProductoService(){
         return new EditProductoService(editProductoUseCase());
     }
