@@ -33,7 +33,7 @@ public class ProductoConfig {
     //Get
        @Bean
     public FindProductoUseCase findProductoUseCase(){
-        return new FindProductoUseCase();
+        return new FindProductoUseCase(new ProductoRepositoryMockImpl());
     }
     //GET
     @Bean
@@ -44,7 +44,7 @@ public class ProductoConfig {
     //DELETE
     @Bean
     public DeleteProductoUseCase deleteProductoUseCase(){
-        return new DeleteProductoUseCase();
+        return new DeleteProductoUseCase(new ProductoRepositoryMockImpl());
     }
 
     //DELETE
@@ -55,7 +55,7 @@ public class ProductoConfig {
     //PUT
     @Bean
     public EditProductoUseCase editProductoUseCase(){
-        return new EditProductoUseCase();
+        return new EditProductoUseCase(new ProductoRepositoryMockImpl());
     }
 
     //PUT
