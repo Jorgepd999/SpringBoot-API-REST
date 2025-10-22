@@ -1,1 +1,0 @@
-La rama 002_validador.
