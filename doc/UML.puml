@@ -1,0 +1,11 @@
+@startuml name
+actor Usuario
+participant "Sistema" as S
+
+Usuario -> S: Iniciar sesión
+S -> Usuario: Mostrar pantalla principal
+
+Usuario -> S: Cerrar sesión
+S -> Usuario: Confirmación
+
+@enduml
