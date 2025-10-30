@@ -6,12 +6,13 @@ import java.util.Map;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
 import es.etg.daw.dawes.java.rest.restfull.productos.domain.model.Producto;
+import es.etg.daw.dawes.java.rest.restfull.productos.domain.model.ProductoId;
 import es.etg.daw.dawes.java.rest.restfull.productos.domain.repository.ProductoRepository;
 
 @Repository
 public class ProductoRepositoryMockImpl implements ProductoRepository {
 
-    private final Map<Integer, Producto> productos = ProductoFactory.getDemoData();
+    private final Map<Producto, ProductoId> productos = ProductoFactory.getDemoData();
 
     @Override
     public Producto save(Producto t) {
