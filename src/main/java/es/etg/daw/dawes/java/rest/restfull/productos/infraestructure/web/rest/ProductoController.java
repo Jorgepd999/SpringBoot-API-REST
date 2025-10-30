@@ -58,7 +58,7 @@ public class ProductoController {
 
      @GetMapping 
     public List<ProductoResponse> allProductos(){
-       
+          // if(true) throw new NullPointerException();
             return findProductoService.findAll()
                     .stream() //Convierte la lista en un flujo
                     .map(ProductoMapper::toResponse) //Mapeamos/Convertimos cada elemento del flujo (Producto) en un objeto de Respuesta (ProductoResponse)
