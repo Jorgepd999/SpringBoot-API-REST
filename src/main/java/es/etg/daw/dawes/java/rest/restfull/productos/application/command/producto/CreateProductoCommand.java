@@ -1,4 +1,4 @@
-package es.etg.daw.dawes.java.rest.restfull.productos.application.command;
+package es.etg.daw.dawes.java.rest.restfull.productos.application.command.producto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
 
 public class CreateProductoCommand {
     
-    private String nombre;
-    private double precio;
+    private final String nombre;
+    private final double precio;
     
 }
