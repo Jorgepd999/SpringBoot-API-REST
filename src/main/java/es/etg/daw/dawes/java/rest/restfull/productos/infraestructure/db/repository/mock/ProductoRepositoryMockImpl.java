@@ -1,6 +1,7 @@
 package es.etg.daw.dawes.java.rest.restfull.productos.infraestructure.db.repository.mock;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -12,12 +13,27 @@ import es.etg.daw.dawes.java.rest.restfull.productos.domain.repository.ProductoR
 @Repository
 public class ProductoRepositoryMockImpl implements ProductoRepository {
 
-    private final Map<Producto, ProductoId> productos = ProductoFactory.getDemoData();
+    private final Map<ProductoId, Producto> productos = ProductoFactory.getDemoData();
 
     @Override
-    public Producto save(Producto t) {
+     public Producto save(Producto t) {
+            //create
+        if(t.getId()==null) t.setId(new ProductoId(obtenerSiguienteId()));
+
         productos.put(t.getId(), t);
         return t;
+    }
+     private int obtenerSiguienteId(){
+        ProductoId ultimo = null;
+        if(!productos.isEmpty()){
+            Collection<Producto> lista = productos.values();
+            
+            for (Producto p : lista) {
+                ultimo = p.getId();
+            }
+
+        }
+        return ultimo.getValue()+1;
     }
 
     @Override
@@ -26,13 +42,13 @@ public class ProductoRepositoryMockImpl implements ProductoRepository {
     }
 
     @Override
-    public Optional<Producto> getById(Integer id) {
+    public Optional<Producto> getById(ProductoId  id) {
         //Un optional puede tener una valor o no. Si no existe el producto devuelve Optional.empty
-        return Optional.ofNullable(productos.get(id));
+         return Optional.ofNullable(productos.get(id));
     }
 
     @Override
-    public void deleteById(Integer id) {
+    public void deleteById(ProductoId  id) {
         productos.remove(id);
     }
 

@@ -5,13 +5,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import es.etg.daw.dawes.java.rest.restfull.productos.application.command.CreateProductoCommand;
-import es.etg.daw.dawes.java.rest.restfull.productos.application.command.EditProductoCommand;
-import es.etg.daw.dawes.java.rest.restfull.productos.application.service.CreateProductoService;
-import es.etg.daw.dawes.java.rest.restfull.productos.application.service.FindProductoService;
-import es.etg.daw.dawes.java.rest.restfull.productos.application.usecase.DeleteProductoUseCase;
-import es.etg.daw.dawes.java.rest.restfull.productos.application.usecase.EditProductoUseCase;
+import es.etg.daw.dawes.java.rest.restfull.productos.application.command.producto.CreateProductoCommand;
+import es.etg.daw.dawes.java.rest.restfull.productos.application.command.producto.EditProductoCommand;
+import es.etg.daw.dawes.java.rest.restfull.productos.application.service.producto.CreateProductoService;
+import es.etg.daw.dawes.java.rest.restfull.productos.application.service.producto.FindProductoService;
+import es.etg.daw.dawes.java.rest.restfull.productos.application.usecase.producto.DeleteProductoUseCase;
+import es.etg.daw.dawes.java.rest.restfull.productos.application.usecase.producto.EditProductoUseCase;
 import es.etg.daw.dawes.java.rest.restfull.productos.domain.model.Producto;
+import es.etg.daw.dawes.java.rest.restfull.productos.domain.model.ProductoId;
 import es.etg.daw.dawes.java.rest.restfull.productos.infraestructure.mapper.ProductoMapper;
 import es.etg.daw.dawes.java.rest.restfull.productos.infraestructure.web.dto.ProductoRequest;
 import es.etg.daw.dawes.java.rest.restfull.productos.infraestructure.web.dto.ProductoResponse;
@@ -65,10 +66,10 @@ public class ProductoController {
                     .toList(); //Lo devuelve como una lista.
        
     }
-    @DeleteMapping("/{id}") // Metodo Delete
-    public ResponseEntity<?> deleteProducto(@PathVariable int id) {
-        deleteProductoService.delete(id);
-        return ResponseEntity.noContent().build(); // Devolvemos una respuesta vacía.
+       @DeleteMapping("/{id}")
+    public ResponseEntity<?>  deleteProducto(@PathVariable int id) {
+        deleteProductoService.delete(new ProductoId(id)); //convertimos id en ProductoId
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/{id}") // Metodo put
