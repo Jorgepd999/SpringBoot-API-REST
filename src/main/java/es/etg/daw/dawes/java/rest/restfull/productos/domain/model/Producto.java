@@ -15,10 +15,10 @@ import lombok.RequiredArgsConstructor;
 
 
 public class Producto {
-
+    
     //Atributtes
 
-    private int id;
+    private ProductoId id;
     private String nombre;
     private double precio;
     private LocalDateTime createdAt;
