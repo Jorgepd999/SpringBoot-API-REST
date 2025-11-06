@@ -28,7 +28,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/productos") // La url será /productos
+@RequestMapping("/categorias") 
 @RequiredArgsConstructor
 public class CategoriaRestController {
 
