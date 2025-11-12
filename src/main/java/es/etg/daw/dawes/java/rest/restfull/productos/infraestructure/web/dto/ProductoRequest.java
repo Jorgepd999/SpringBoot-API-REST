@@ -15,7 +15,6 @@ public record ProductoRequest(
         double precio,
 
         //@Min(value = 1, message = "{producto.valid.categoria_id.min}")
-        int categoriaId 
-) {}
+        int categoriaId ) {}
 
     

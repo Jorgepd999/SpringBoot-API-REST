@@ -9,4 +9,5 @@ import es.etg.daw.dawes.java.rest.restfull.productos.domain.model.ProductoId;
 public interface ProductoRepository extends CRUDRepository<Producto, ProductoId> {
     
     Optional<Producto> getByName(String nombre);
+    
 }

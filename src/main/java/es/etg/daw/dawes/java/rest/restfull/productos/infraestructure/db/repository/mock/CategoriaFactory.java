@@ -17,5 +17,7 @@ public class CategoriaFactory {
         datos.put(new CategoriaId(2), new Categoria(new CategoriaId(2), "Categoria 2", LocalDateTime.now()));
         return datos;
     }
-    
+    public static Categoria create(){
+        return new Categoria(null,"Nueva categoria",LocalDateTime.now());
+    }
 }
