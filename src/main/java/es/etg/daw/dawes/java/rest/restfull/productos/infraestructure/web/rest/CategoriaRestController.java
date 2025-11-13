@@ -61,7 +61,7 @@ public class CategoriaRestController {
     }
 
     @PutMapping("/{id}") // Metodo put
-    public CategoriaResponse editProducto(@PathVariable int id, @RequestBody CategoriaRequest categoriaRequest) {
+    public CategoriaResponse editProducto(@PathVariable int id, @Valid @RequestBody CategoriaRequest categoriaRequest) {
         EditCategoriaCommand comando = CategoriaMapper.toCommand(id, categoriaRequest);
         Categoria categoria = editCategoriaService.update(comando);
         return CategoriaMapper.toResponse(categoria); // Respuesta

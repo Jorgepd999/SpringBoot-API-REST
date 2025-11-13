@@ -1,9 +1,23 @@
 package es.etg.daw.dawes.java.rest.restfull.productos.infraestructure.web.rest;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
 
 import es.etg.daw.dawes.java.rest.restfull.productos.application.command.producto.CreateProductoCommand;
 import es.etg.daw.dawes.java.rest.restfull.productos.application.command.producto.EditProductoCommand;
@@ -18,23 +32,6 @@ import es.etg.daw.dawes.java.rest.restfull.productos.infraestructure.web.dto.Pro
 import es.etg.daw.dawes.java.rest.restfull.productos.infraestructure.web.dto.ProductoResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/productos") // La url será /productos

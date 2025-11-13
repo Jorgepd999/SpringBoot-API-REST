@@ -58,6 +58,7 @@ public class ProductoRepositoryMockImplTest {
         // Act
         Optional<Producto> p = repository.getById(id);
         // Assert
+        assertTrue(p.isPresent());
         assertEquals(id, p.get().getId());
     }
 
